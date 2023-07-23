@@ -5,6 +5,14 @@ const skills = [
     {title: 'Node', id:4 }
 ];
 
+module.exports = {
+  getAllSkills,
+  findSkill,
+  create,
+  deleteOne,
+ };
+
+
 function findSkill (id_param) {
   id_param_int = parseInt(id_param);
   return skills.find(skill => skill.id === id_param_int);
@@ -13,12 +21,16 @@ function findSkill (id_param) {
 function getAllSkills() {
     return skills;
   }
+  
+  function deleteOne(id) {
+    id = parseInt(id);
+    const idx = skills.findIndex(skill => skill.id === id_param_int);
+    skills.splice(idx, 1);
+  }
 
-  module.exports = {
-    getAllSkills,
-    findSkill
-    
-  };
-
+  function create(skill) {
+  skills.push(skill);
+}
+ 
 
  
